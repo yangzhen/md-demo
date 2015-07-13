@@ -37,5 +37,13 @@
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>com.mdsh.commons</groupId>
+			<artifactId>base-commons</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+
 	</dependencies>
 </project>
