@@ -9,6 +9,6 @@ package com.md.demo.server.service;
  */
 public interface TestService {
 
-	public String testResult();
+	public String testResult(int id);
 
 }

@@ -1,5 +1,8 @@
 package com.md.demo.server.web;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
@@ -15,6 +18,8 @@ import com.md.demo.server.bean.param.TestGetParam;
 import com.md.demo.server.bean.vo.ResultMsg;
 import com.md.demo.server.bean.vo.TestGetResult;
 import com.md.demo.server.common.constant.Constant;
+import com.md.demo.server.common.exception.MdException;
+import com.md.demo.server.common.util.RES_STATUS;
 import com.md.demo.server.service.TestService;
 
 /**
@@ -41,20 +46,51 @@ public class TestController {
 
 		long start = System.currentTimeMillis();
 
+		ResultMsg<TestGetResult> ret = null;
+
+		if (!checkTestParam(param)) {
+			ret = new ResultMsg<TestGetResult>(null, RES_STATUS.ERROR_PARAM.code,
+					RES_STATUS.ERROR_PARAM.name());
+		}
+
+		int id = param.getId();
+
 		String ip = getIpAddr(request);
 
-		String text = testService.testResult();
-
-		TestGetResult data = new TestGetResult();
-		data.setResult(text);
+		String text = null;
+		try {
+			text = testService.testResult(id);
+			TestGetResult data = new TestGetResult();
+			data.setResult(text);
+			ret = new ResultMsg<TestGetResult>(data, RES_STATUS.SUCCESS.code,
+					RES_STATUS.SUCCESS.name());
+		} catch (MdException e) {
+			ret = new ResultMsg<TestGetResult>(null, e.getStatus().code,
+					e.getStatus().name());
+		}
 
 		long methodCost = System.currentTimeMillis() - start;
 
-		logger.info(request.getRequestURI() + Constant.LOG_SPLIT + ip + Constant.LOG_SPLIT
-				+ 200 + Constant.LOG_SPLIT + "SUCCESS" + Constant.LOG_SPLIT + methodCost
-				+ Constant.LOG_SPLIT + param.toString());
+		List<Object> logs = new ArrayList<Object>();
+		logs.add(request.getRequestURI());
+		logs.add(ip);
+		logs.add(200);
+		logs.add("SUCCESS");
+		logs.add(methodCost);
+		logs.add(param.toString());
 
-		return new ResultMsg<TestGetResult>(data, 200, "success");
+		logger.info(StringUtils.join(logs, Constant.LOG_SPLIT));
+
+		return ret;
+	}
+
+	/**
+	 * 
+	 * @param param
+	 * @return
+	 */
+	private boolean checkTestParam(TestGetParam param) {
+		return param.getId() >= 0 ? true : false;
 	}
 
 	/**

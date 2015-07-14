@@ -9,19 +9,19 @@ package com.md.demo.server.bean.param;
  */
 public class TestGetParam {
 
-	public String testParam;
+	public int id;
 
-	public String getTestParam() {
-		return testParam;
+	public int getId() {
+		return id;
 	}
 
-	public void setTestParam(String testParam) {
-		this.testParam = testParam;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	@Override
 	public String toString() {
-		return "TestGetParam [testParam=" + testParam + "]";
+		return "TestGetParam [id=" + id + "]";
 	}
 
 }
