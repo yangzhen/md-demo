@@ -74,9 +74,4 @@
 			value="20" />
 	</bean>
 
-	<bean id="stringHttpMessageConverter"
-		class="org.springframework.http.converter.StringHttpMessageConverter">
-		<constructor-arg value="UTF-8" />
-	</bean>
-
 </beans>	
