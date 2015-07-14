@@ -5,7 +5,7 @@
 	<!-- 根据account_id和account_type查询一条完整的映射信息 -->
 	<select id="selectTest" resultType="TestMap">
 		SELECT
-			id,text
+			id,name
 		FROM
 			test
 		WHERE

@@ -43,7 +43,7 @@ public class TestController {
 
 		String ip = getIpAddr(request);
 
-		String text = testService.testResult();
+		String text = testService.testResult(param.getId());
 
 		TestGetResult data = new TestGetResult();
 		data.setResult(text);

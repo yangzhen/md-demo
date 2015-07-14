@@ -19,8 +19,8 @@ public class TestServiceImpl implements TestService {
 	private TestDAO testDAO;
 
 	@Override
-	public String testResult() {
-		return testDAO.selectTest(0).getText();
+	public String testResult(int id) {
+		return testDAO.selectTest(id).getName();
 	}
 
 }

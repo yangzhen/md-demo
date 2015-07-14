@@ -2,7 +2,8 @@ package com.md.demo.server.bean.entry;
 
 /**
  * 
- * TestMap 
+ * TestMap
+ * 
  * @author chenchao
  * @date Jul 14, 2015 2:48:50 PM
  *
@@ -11,14 +12,14 @@ public class TestMap {
 
 	private int id;
 
-	private String text;
+	private String name;
 
-	public String getText() {
-		return text;
+	public String getName() {
+		return name;
 	}
 
-	public void setText(String text) {
-		this.text = text;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public int getId() {

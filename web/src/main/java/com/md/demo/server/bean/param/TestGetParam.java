@@ -2,7 +2,8 @@ package com.md.demo.server.bean.param;
 
 /**
  * 
- * TestGetParam 
+ * TestGetParam
+ * 
  * @author chenchao
  * @date Jul 14, 2015 2:17:38 PM
  *
@@ -10,6 +11,8 @@ package com.md.demo.server.bean.param;
 public class TestGetParam {
 
 	public String testParam;
+
+	public int id;
 
 	public String getTestParam() {
 		return testParam;
@@ -19,9 +22,12 @@ public class TestGetParam {
 		this.testParam = testParam;
 	}
 
-	@Override
-	public String toString() {
-		return "TestGetParam [testParam=" + testParam + "]";
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

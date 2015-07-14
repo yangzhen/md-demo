@@ -4,7 +4,7 @@
 	<groupId>com.md.demo</groupId>
 	<artifactId>parent</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0</version>
+	<version>0.1-SNAPSHOT</version>
 
 	<modules>
 		<module>biz</module>
@@ -16,7 +16,7 @@
 	<properties>
 		<spring.version>3.2.2.RELEASE</spring.version>
 		<servlet.version>2.5</servlet.version>
-		<junit.version>4.11</junit.version>
+		<junit.version>4.12</junit.version>
 	</properties>
 
 	<dependencyManagement>
