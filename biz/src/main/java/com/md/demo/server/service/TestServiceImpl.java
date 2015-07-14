@@ -20,7 +20,7 @@ public class TestServiceImpl implements TestService {
 
 	@Override
 	public String testResult() {
-		return testDAO.selectTest(0).getText();
+		return testDAO.selectTest(10).getText();
 	}
 
 }
