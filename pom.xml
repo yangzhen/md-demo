@@ -27,13 +27,13 @@
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.md.push</groupId>
+				<groupId>com.md.demo</groupId>
 				<artifactId>demo.biz</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.md.demo</groupId>
-				<artifactId>md.dal</artifactId>
+				<artifactId>demo.dal</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
@@ -78,6 +78,16 @@
 				<version>${spring.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.perf4j</groupId>
+				<artifactId>perf4j</artifactId>
+				<version>0.9.16</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aspects</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
 				<version>1.1.43</version>
@@ -111,11 +121,11 @@
 				<artifactId>logback-classic</artifactId>
 				<version>1.1.2</version>
 			</dependency>
- 		        <dependency>
-                                <groupId>log4j</groupId>
-                                <artifactId>log4j</artifactId>
-                                <version>1.2.16</version>
-                        </dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.16</version>
+			</dependency>
 			<!-- logback end -->
 
 

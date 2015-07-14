@@ -18,6 +18,8 @@
 	<!-- 将无法mapping到Controller的path交给default servlet handler处理 -->
 	<mvc:default-servlet-handler />
 
+	<mvc:annotation-driven />
+
 	<!-- 定义JSP文件的位置 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -28,45 +30,6 @@
 	<!-- 定义无Controller的path<->view直接映射 -->
 	<mvc:view-controller path="/" view-name="redirect:/index" />
 
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/1/demo/*" />
-			<bean
-				class="com.md.demo.server.interceptor.DemoInterceptor" />
-		</mvc:interceptor>
-	</mvc:interceptors>
-
-	<mvc:annotation-driven>
-        <mvc:message-converters register-defaults="true">
-            <bean id="fastJsonHttpMessageConverter"
-                class="com.md.demo.server.util.json.FastJsonHttpMessagePlusConverter">
-                <property name="supportedMediaTypes">
-                    <list>
-                        <value>application/json</value>
-                    </list>
-                </property>
-                <property name="filters">
-                    <list>
-                        <ref bean="removeNullValueFilter" />
-                    </list>
-                </property>
-                <property name="features">
-                    <list>
-                        <value>WriteNullBooleanAsFalse</value>
-                        <value>WriteNullNumberAsZero</value>
-                        <value>WriteNullListAsEmpty</value>
-                        <value>WriteNullStringAsEmpty</value>
-                        <value>WriteMapNullValue</value>
-                        <value>QuoteFieldNames</value>
-                        <!-- <value>BrowserCompatible</value> -->
-                        <value>NotWriteRootClassName</value>
-                    </list>
-                </property>
-            </bean>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
-
-    <bean id="removeNullValueFilter" class="com.md.demo.server.util.json.RemoveNullValueFilter" />
 	<bean id="stringHttpMessageConverter"
 		class="org.springframework.http.converter.StringHttpMessageConverter">
 		<constructor-arg value="UTF-8" />
